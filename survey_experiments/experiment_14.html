@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+    <title>Video Survey Experiment 14</title>
+    <link rel="stylesheet" type="text/css" href="survey_static/css/styles.css">
+    <style>
+        .video-container-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ranking {
+            margin-top: 10px;
+        }
+        .hidden-option {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const selects = document.querySelectorAll("select");
+            const submitButton = document.querySelector("button[type='submit']");
+            const resetButton = document.createElement("button");
+
+            function updateSelectOptions() {
+                const values = Array.from(selects).map(s => s.value).filter(v => v !== "");
+                selects.forEach(s => {
+                    Array.from(s.options).forEach(option => {
+                        if (values.includes(option.value) && option.value !== s.value) {
+                            option.classList.add("hidden-option");
+                        } else {
+                            option.classList.remove("hidden-option");
+                        }
+                    });
+                });
+                // Enable the submit button only if all scores are selected
+                submitButton.disabled = values.length !== selects.length;
+            }
+
+            selects.forEach(select => {
+                select.addEventListener("change", function() {
+                    updateSelectOptions();
+                });
+            });
+
+            // Add reset button functionality
+            resetButton.type = "button";
+            resetButton.textContent = "Reset Scores";
+            resetButton.style.marginRight = "10px";
+            resetButton.addEventListener("click", function() {
+                selects.forEach(select => {
+                    select.value = "";
+                });
+                updateSelectOptions();
+            });
+            document.querySelector("form").insertBefore(resetButton, document.querySelector("div[style='text-align: right;']"));
+
+            // Initial call to hide options based on preselected values
+            updateSelectOptions();
+        });
+    </script>
+</head>
+    <div style="background-color: #f9f9f9; padding: 20px; border-bottom: 1px solid #ccc;">
+        <p style="text-align: center; font-weight: bold;">
+            Note: This is a dummy survey, created as a replica of the actual survey. Unlike the actual survey, your scores here are not logged and the video order is not randomized. 
+            <br>The video order is: IN2N, PDS-NeRF, PDS-Splat, and ours. To proceed to the next survey, you must fill in all scores, just as in the actual survey. 
+            <br>To go back to the survey page, click <a href="survey_index.html">here</a>. To go back to the main page, click <a href="../index.html">here</a>.
+        </p>
+    </div>
+    <h1>Score the Videos from Best (3) to Worst (0)</h1>
+    <h1 style="text-align: center;">Input data:</h1>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="survey_static/images/experiment_14.jpg" alt="Explanation Image" width="1340">
+    </div>
+    <h3 style="text-align: center;">
+        <em>Considering the original scene images and editing text prompts,<br>
+        give an overall score to the following scenes in terms of geometry,<br>
+        editing quality, and clarity while preserving the features of the original scene.</em>
+    </h3>
+    <h1 style="text-align: center;">Output:</h1>
+    <form method="post" action="experiment_15.html">
+        <div class="video-container-row">
+            
+<div class="video-container">
+    <video width="320" controls loop autoplay muted>
+        <source src="survey_static/videos/experiment_14_video_2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="ranking">
+        <label for="ranking_2">Score:</label>
+        <select name="ranking_2" id="ranking_2">
+            <option value="" disabled selected>Choose score</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+</div>
+
+<div class="video-container">
+    <video width="320" controls loop autoplay muted>
+        <source src="survey_static/videos/experiment_14_video_3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="ranking">
+        <label for="ranking_3">Score:</label>
+        <select name="ranking_3" id="ranking_3">
+            <option value="" disabled selected>Choose score</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+</div>
+
+<div class="video-container">
+    <video width="320" controls loop autoplay muted>
+        <source src="survey_static/videos/experiment_14_video_4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="ranking">
+        <label for="ranking_4">Score:</label>
+        <select name="ranking_4" id="ranking_4">
+            <option value="" disabled selected>Choose score</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+</div>
+
+<div class="video-container">
+    <video width="320" controls loop autoplay muted>
+        <source src="survey_static/videos/experiment_14_video_1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="ranking">
+        <label for="ranking_1">Score:</label>
+        <select name="ranking_1" id="ranking_1">
+            <option value="" disabled selected>Choose score</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+</div>
+
+        </div>
+        <h4 style="text-align: center;">
+            <em>Please score all the options</em>
+        </h4>
+        <div style="text-align: right;">
+            <button type="submit" disabled>Submit Scores</button>
+        </div>
+    </form>
+    <br><br>
+</body>
+</html>

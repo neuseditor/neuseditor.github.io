@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="NeuSEditor: From Multi-View Images to Text-Guided Neural Surface Edits">
+  <meta name="keywords" content="Neural Rendering, Diffusion Models, Neural Surfaces, GenAI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuSEditor: From Multi-View Images to Text-Guided Neural Surface Edits</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title multicolor-shadow"><em>NeuSEditor: </em>From Multi-View Images to Text-Guided Neural Surface Edits</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#"> Euler,  </a>  
+                <a href="#"> Gauss,  </a>
+                <a href="#"> Laplace </a>
+              </span><br>
+              <!--span class="author-block">
+              <a href="https://webpage">Name Surname</a><sup>1</sup>,</span-->
+            </div>
+            <div class="is-size-5 publication-authors">
+              <!--span class="author-block"><sup>1</sup>University of ..,</span-->
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <!-- PDF Link. -->
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper (Hi-res)</span>
+                  </a>
+                </span>
+               <span class="link-block">
+                  <!-- Code Link. -->
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <!-- Code Link. -->
+                  <a href="survey_experiments/survey_index.html" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-poll"></i>
+                    </span>
+                    <span>User Survey (Comparison)</span>
+                  </a>
+                </span>      
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Implicit surface representations are valued for their compactness and continuity but pose significant challenges for editing. To address this gap, we introduce NeuSEditor, a novel method for text-guided editing of neural implicit surfaces derived from multi-view images.
+              NeuSEditor employs an identity-preserving architecture that efficiently separates scenes into foreground and background, enabling precise modifications without altering the scene's inherent properties. 
+              Our geometry-aware distillation loss significantly enhances rendering and geometric quality.
+              Our method simplifies the editing workflow by eliminating the need for continuous dataset updates and source prompting.
+              NeuSEditor outperforms recent state-of-the-art methods like PDS and InstructNeRF2NeRF, delivering superior rendering and geometric quality.
+            </p>
+          </div>
+          <div class="video-container" style="margin-bottom: 40px;">
+            <!--Center the text-->
+            <video controls loop autoplay muted playsinline style="width: 100%">
+              <source src="static/videos/teaser_video.mp4" type="video/mp4">Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h3 class="title is-4">Conceptual Overview </h3>
+    </div>
+      <div class="video-container" style="margin-bottom: 40px;">
+        <!--Center the text-->
+        <h2 style="text-align: center; font-weight: bold;">Step 1: Understand the 3D Identity by analyzing the input scene
+          images <span style="font-style: italic;">(Decompose and Conquer)</span></h2>
+        <video controls loop autoplay muted playsinline style="width: 100%">
+          <source src="static/videos/bear_identity_decomposed_text.mp4" type="video/mp4">Your browser does not support the
+          video tag.
+        </video>
+        <h2 style="text-align: center; font-weight: bold;">Step 2: Modify the foreground elements</h2>
+        <video controls loop autoplay muted playsinline style="width: 100%">
+          <source src="static/videos/4_bears_fg_text.mp4" type="video/mp4">Your browser does not support the video tag.
+        </video>
+        <h2 style="text-align: center; font-weight: bold;">Step 3: Compose and render the complete model</h2>
+        <video controls loop autoplay muted playsinline style="width: 100%">
+          <source src="static/videos/4_bears_full_text.mp4" type="video/mp4">Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+</section>
+<section>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h3 class="title is-4">Optimization track</h3>
+    </div>
+    <div class="columns is-centered has-text-centered">
+    <h4 class="subtitle is-5"> The video below demonstrates the optimization route of the IN2N-data <em>person</em> scene with the edit prompt <em>"put him into a suit"</em>.</h4>
+    </div>
+      <div class="video-container" style="margin-bottom: 40px;">
+          <!--Center the text-->
+          <video controls loop  style="width: 100%">
+            <source src="static/videos/optimization_track_text.mp4" type="video/mp4">Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+</section>
+  <section class="section">
+    <div class="columns is-centered has-text-centered">
+      <h3 class="title is-4">Qualitative results</h3>
+      <br>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <h4 class="subtitle is-5">The following videos show the results (with learned identity and edit) of our method on various scenes.
+        <br> Check out the user survey <a href="survey_experiments/survey_index.html">here</a> to compare our method with other state-of-the-art methods.
+      </h4>
+    </div>
+    <div class="container is-max-desktop">
+    <br>
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns is-centered has-text-centered">
+              <h3 class="title is-4">DTU-Scan24</h3>
+            </div>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-scan24_lego">
+                <video poster="" id="scan24_lego" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan24_lego.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan24_castle">
+                <video poster="" id="scan24_castle" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan24_castle.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan24_church">
+                <video poster="" id="scan24_church" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan24_church.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan24_mosque">
+                <video poster="" id="scan24_mosque" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan24_mosque.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan24_barn">
+                <video poster="" id="playground" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan24_barn.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan24_disney_castle">
+                <video poster="" id="scan24_disney_castle" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan24_disney_castle.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <br><br>
+            <div class="columns is-centered has-text-centered">
+              <h3 class="title is-4">DTU-Scan65</h3>
+            </div>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-scan65_clown">
+                <video poster="" id="scan65_clown" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan65_clown.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan65_moustache">
+                <video poster="" id="scan65_moustache" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan65_moustache_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan65_buddha">
+                <video poster="" id="scan65_buddha" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan65_buddha_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan65_alien">
+                <video poster="" id="scan65_alien" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan65_alien_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan65_horn">
+                <video poster="" id="scan65_horn" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan65_horn_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <br><br>
+            <div class="columns is-centered has-text-centered">
+              <h3 class="title is-4">DTU-Scan83 and DTU-Scan105</h3>
+            </div>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-scan105_bowtie">
+                <video poster="" id="scan105_bowtie" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan105_bowtie_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan105_suit">
+                <video poster="" id="scan105_suit" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan105_suit_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan105_tiger">
+                <video poster="" id="scan105_tiger" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan105_tiger_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan83_suit">
+                <video poster="" id="scan83_suit" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan83_suit_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan83_bowtie">
+                <video poster="" id="scan83_bowtie" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan83_bowtie_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <br><br>
+            <div class="columns is-centered has-text-centered">
+              <h3 class="title is-4">DTU-Scan106 and DTU-Scan110</h3>
+            </div>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-scan110_monk">
+                <video poster="" id="scan110_monk" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan110_monk.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan110_buddha">
+                <video poster="" id="scan110_buddha" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan110_buddha.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan110_snoop">
+                <video poster="" id="scan110_snoop" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan110_snoop.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan106_chicken">
+                <video poster="" id="scan106_chicken" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan106_chicken.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-scan106_crows">
+                <video poster="" id="scan106_crows" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/scan106_crows.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <br><br>
+            <div class="columns is-centered has-text-centered">
+              <h3 class="title is-4">Blender (NeRF synthetic)</h3>
+            </div>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-ficus_apple">
+                <video poster="" id="ficus_apple" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/ficus_apple_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-ficus_cactus">
+                <video poster="" id="ficus_cactus" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/ficus_cactus_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-ficus_rose">
+                <video poster="" id="ficus_rose" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/ficus_rose_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-mic_hairdryer">
+                <video poster="" id="mic_hairdryer" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/mic_hairdryer_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-mic_pistol">
+                <video poster="" id="mic_pistol" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/mic_pistol_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-hotdog_banana">
+                <video poster="" id="hotdog_banana" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/hotdog_banana_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-hotdog_corn">
+                <video poster="" id="hotdog_corn" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/hotdog_corn_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+            <br><br>
+            <div class="columns is-centered has-text-centered">
+              <h3 class="title is-4">IN2N-data bear scene</h3>
+            </div>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-bear_grizzly">
+                <video poster="" id="bear_grizzly" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/bear_grizzly.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-bear_panda">
+                <video poster="" id="bear_panda" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/bear_panda.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-bear_polar">
+                <video poster="" id="bear_polar" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/bear_polar.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-bear_grizzly">
+                <video poster="" id="bear_grizzly" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/bear_grizzly.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-bear_panda">
+                <video poster="" id="bear_panda" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/bear_panda.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-bear_polar">
+                <video poster="" id="bear_polar" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/bear_polar.mp4" type="video/mp4">
+                </video>
+              </div>
+              </div>
+              <br> <br>
+              <div class="columns is-centered has-text-centered">
+              <h3 class="title is-4">IN2N-data person scene</h3>
+              </div>
+              <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-person_clown">
+                <video poster="" id="person_clown" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/person_clown_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-person_firefighter">
+                <video poster="" id="person_firefighter" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/person_firefighter_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-person_suit">
+                <video poster="" id="person_suit" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/person_suit_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-person_clown">
+                <video poster="" id="person_clown" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/person_clown_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-person_firefighter">
+                <video poster="" id="person_firefighter" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/person_firefighter_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-person_suit">
+                <video poster="" id="person_suit" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/carousel/person_suit_edit.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
+      <br>
+    </div>
+  </section>
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@InProceedings{...,
+        author    = {Euler, Gauss, Laplace},
+        title     = {NeuSEditor: From Multi-View Images to Text-Guided Neural Surface Edits},
+        booktitle = {},
+        year      = {2025},
+      }</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="#">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              We adapted <a href="https://github.com/nerfies/nerfies.github.io">source
+                code of Nerfies paper</a>  to create this website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
