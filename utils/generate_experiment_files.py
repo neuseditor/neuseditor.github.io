@@ -4,7 +4,7 @@ import os
 output_dir = "survey_experiments"
 
 # Template for the static HTML files
-template = """<!doctype html>
+template = """<!DOCTYPE html>
 <html>
 <head>
     <title>Video Survey Experiment {experiment_number}</title>
@@ -90,7 +90,7 @@ template = """<!doctype html>
         editing quality, and clarity while preserving the features of the original scene.</em>
     </h3>
     <h1 style="text-align: center;">Output:</h1>
-    <form method="post" action="{next_experiment}">
+    <form method="get" action="{next_experiment}">
         <div class="video-container-row">
             {video_containers}
         </div>
@@ -147,7 +147,7 @@ for experiment_number in range(1, 35):
         f.write(html_content)
 
 # Generate survey_index.html
-index_template = """<!doctype html>
+index_template = """<!DOCTYPE html>
 <html>
 <head>
     <title>Experiment Survey Index</title>
