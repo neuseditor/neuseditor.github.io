@@ -35,9 +35,9 @@
             <h1 class="title is-1 publication-title multicolor-shadow"><em>NeuSEditor: </em>From Multi-View Images to Text-Guided Neural Surface Edits</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="#"> Euler,  </a>  
-                <a href="#"> Gauss,  </a>
-                <a href="#"> Laplace </a>
+                <a href="#"> Author #1,  </a>  
+                <a href="#"> Author #2,  </a>
+                <a href="#"> Author #3 </a>
               </span><br>
               <!--span class="author-block">
               <a href="https://webpage">Name Surname</a><sup>1</sup>,</span-->
@@ -424,27 +424,40 @@
   <section>
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <h3 class="title is-4">Background editing </h3>
+      <h3 class="title is-4">Background editing</h3>
     </div>
-      <div class="video-container" style="margin-bottom: 40px;">
-        <!--Center the text-->
-        <h1 style="text-align: center; font-weight: bold;">Full model</span></h1>
-        <video controls loop autoplay muted playsinline style="width: 100%">
-          <source src="static/videos/bear_edit_bg_full_text.mp4" type="video/mp4">Your browser does not support the
-          video tag.
-        </video>
-        <h1 style="text-align: center; font-weight: bold;">Extracted background</h1>
-        <video controls loop autoplay muted playsinline style="width: 100%">
-          <source src="static/videos/bear_edit_bg_text.mp4" type="video/mp4">Your browser does not support the video tag.
-        </video>
-      </div>
+    <div class="columns is-centered has-text-centered">
+      <h4 class="subtitle is-5">(Leftmost renders are for reference)</h4>
     </div>
+    <div class="video-container" style="margin-bottom: 40px;">
+      <h2 style="text-align: center; font-weight: bold;">Our Extracted Background </h2>
+      <video controls loop autoplay muted playsinline style="width: 100%">
+        <source src="static/videos/bear_edit_bg_text.mp4" type="video/mp4">Your browser does not support the video tag.
+      </video>
+      <h2 style="text-align: center; font-weight: bold;"> Our Full Model </h2>
+      <video controls loop autoplay muted playsinline style="width: 100%">
+        <source src="static/videos/bear_edit_bg_full_text.mp4" type="video/mp4">Your browser does not support the video tag.
+      </video>
+      <h2 style="text-align: center; font-weight: bold;">IN2N</h2>
+      <video controls loop autoplay muted playsinline style="width: 100%">
+        <source src="static/videos/in2n_background_edit.mp4" type="video/mp4">Your browser does not support the video tag.
+      </video>
+      <h2 style="text-align: center; font-weight: bold;">PDS<sub>NERF</sub></h2>
+      <video controls loop autoplay muted playsinline style="width: 100%">
+        <source src="static/videos/pdsnerf_background_edit.mp4" type="video/mp4">Your browser does not support the video tag.
+      </video>
+      <h2 style="text-align: center; font-weight: bold;">PDS<sub>Splat</sub></h2>
+      <video controls loop autoplay muted playsinline style="width: 100%">
+        <source src="static/videos/pds_splat_background_edit.mp4" type="video/mp4">Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 </section>
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@InProceedings{...,
-        author    = {Euler, Gauss, Laplace},
+        author    = {Author#1, Author#2, Author#3},
         title     = {NeuSEditor: From Multi-View Images to Text-Guided Neural Surface Edits},
         booktitle = {},
         year      = {2025},
